@@ -1,0 +1,23 @@
+#!/bin/env sh
+silent=false
+
+if [[ "$1" == "-silent" ]]; then
+	silent=true
+fi
+
+if [[ $# -eq 0 ]]; then
+	echo "Usage: $0 [-silent] <channel_names>"
+	exit 1
+fi
+
+for channel in "$@"; do
+	if [[ "$channel" == "-silent" ]]; then
+		continue
+	fi
+	rssfeed=$(curl -s https://www.youtube.com/@$channel | grep -oP 'type="application/rss\+xml" title="RSS" href="\K.*?(?=")')
+	if [[ -n "$rssfeed" ]]; then
+		echo "$rssfeed"
+	elif [[ "$silent" == false ]]; then
+		echo "Channel does not exist: $channel"
+	fi
+done
