@@ -8,5 +8,5 @@ sudo wget -P /usr/local/bin https://raw.githubusercontent.com/vlcpenguin/yt2rss/
 
 # Usage
 ```sh
-yt2rss <channel_names>
+yt2rss [-silent] <channel_names>
 ```
