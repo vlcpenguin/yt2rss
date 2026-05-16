@@ -1,5 +1,5 @@
 # yt2rss
-1 Line bash script to get the RSS feed of a channel with just its name
+Basic Bash script to get the RSS feed of a channel with just its name
 
 # Installation
 ```sh
